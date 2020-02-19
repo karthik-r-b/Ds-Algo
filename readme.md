@@ -54,8 +54,6 @@ Remarks
 
 ##### Given a sorted list and a value, we need to find the index where it should be inserted or return the index at which it is already present. Searching in a sorted list should always be done using binary search. The steps are listed below
 
-#####
-
 .... Find the middle element of the list
 .... If value matches with target then return the index
 .... If value is greater than target, we need to search the left half
@@ -70,16 +68,16 @@ Remarks
 
 ##### Remarks
 
-`````O(log n) time complexity for using divide and conquer technique
-O(1) space complexity as only 3 additional variables are used ```
+```````O(log n) time complexity for using divide and conquer technique
+O(1) space complexity as only 3 additional variables are used ``````
 
-.... Integer overflow is prevented by using the expression (high-low) instead of (high+low).
-..... This is not applicable to python as python converts int to long as per the need.
-.... The result of low+(high-low)/2 will never be equal to high, it can at most reach high-1. Hence we initialize high with length of list to reach the last valid index which is one less than the length of list
+### Integer overflow is prevented by using the expression (high-low) instead of (high+low)
+ This is not applicable to python as python converts int to long as per the need.
+ #### The result of low+(high-low)/2 will never be equal to high, it can at most reach high-1. Hence we initialize high with length of list to reach the last valid index which is one less than the length of list
 
 ------
 
-###### We have already seen how to search for an element in a sorted array. A rotated array will simply have an increasing sequence for till the highest element and then a drop followed by another increasing. To search in this array we can simply find the minimum element and search in the point at which the highest element and search for the element in either the left or right side of it.
+######  We have already seen how to search for an element in a sorted array. A rotated array will simply have an increasing sequence for till the highest element and then a drop followed by another increasing. To search in this array we can simply find the minimum element and search in the point at which the highest element and search for the element in either the left or right side of it.
 
 #### We can identify the pivot element by comparing it to its neighbors. Both of them would be greater than it. So first we perform a binary search to find an element which satisfies this.
 
@@ -95,8 +93,25 @@ O(1) space complexity as only 3 additional variables are used ```
 
 Remarks:
 
-````O(log n) + O(log n) time complexity, for performing the binary search twice
+```O(log n) + O(log n) time complexity, for performing the binary search twice
 O(1) space complexity as no new copies of the existing arrays are created```
 
-[link]https://leetcode.com/problems/search-in-rotated-sorted-array/)
-`````
+[link](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+----------------
+
+##### Let’s analyse the input first, we have an unsorted array of integers and we are not allowed to change the order. So our only option is traversing the array. Now we need to find a contiguous sequence satisfying some property. This can be done by checking sequences of all size starting at each point or alternatively ending at each point. Checking for sequences of all sizes would use O(n²) time complexity.
+To optimize we need to avoid checking for all sequences and use the results of previous sequences to calculate the result for current sequence
+Traverse the array from left to right and keep track of maximum sum at each element
+To do that, check the maximum sum at previous element and add the current element to it if it makes the sum larger or just use the current element
+Keep track of the maximum sum obtained at each element
+#### Remarks:
+```O(1) space complexity as constant number of variables are being used
+O(n) time complexity for traversing the array once
+Using result of previous element to find result of current element, you will see this pattern in a lot of places ```
+
+
+[link]:(https://leetcode.com/problems/maximum-subarray/)
+
+------------
+```````
