@@ -3,7 +3,7 @@
 const insertionSort = arr => {
   /*
     Time complexity-O(n)
-    Space complexity - linear
+    Space complexity - constant
     */
   for (let i = 1, n = arr.length; i < n; i++) {
     let temp = arr[i];
