@@ -96,7 +96,7 @@ Remarks:
 ```O(log n) + O(log n) time complexity, for performing the binary search twice
 O(1) space complexity as no new copies of the existing arrays are created```
 
-[link](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+[link]: (https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ----------------
 
@@ -111,7 +111,7 @@ O(n) time complexity for traversing the array once
 Using result of previous element to find result of current element, you will see this pattern in a lot of places ```
 
 
-[link]:(https://leetcode.com/problems/maximum-subarray/)
+[link]: (https://leetcode.com/problems/maximum-subarray/)
 
 ------------
 ```````
