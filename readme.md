@@ -70,10 +70,33 @@ Remarks
 
 ##### Remarks
 
-````O(log n) time complexity for using divide and conquer technique
+`````O(log n) time complexity for using divide and conquer technique
 O(1) space complexity as only 3 additional variables are used ```
 
-###### Integer overflow is prevented by using the expression (high-low) instead of (high+low).
-##### This is not applicable to python as python converts int to long as per the need.
-##### The result of low+(high-low)/2 will never be equal to high, it can at most reach high-1. Hence we initialize high with length of list to reach the last valid index which is one less than the length of list
-````
+.... Integer overflow is prevented by using the expression (high-low) instead of (high+low).
+..... This is not applicable to python as python converts int to long as per the need.
+.... The result of low+(high-low)/2 will never be equal to high, it can at most reach high-1. Hence we initialize high with length of list to reach the last valid index which is one less than the length of list
+
+------
+
+###### We have already seen how to search for an element in a sorted array. A rotated array will simply have an increasing sequence for till the highest element and then a drop followed by another increasing. To search in this array we can simply find the minimum element and search in the point at which the highest element and search for the element in either the left or right side of it.
+
+#### We can identify the pivot element by comparing it to its neighbors. Both of them would be greater than it. So first we perform a binary search to find an element which satisfies this.
+
+#### Find middle element of the list and compare it with its neighbors
+
+#### If left is lower and right is higher we are in the ascending section of the list and the pivot is towards the smaller side i.e. left, otherwise it is to the right
+
+#### For moving left, move the high pointer to mid
+
+#### For moving right, move the left pointer to mid
+
+#### Once we find the pivot, we can do a search on first element to pivot if the target lies in that range otherwise on pivot to last element.
+
+Remarks:
+
+````O(log n) + O(log n) time complexity, for performing the binary search twice
+O(1) space complexity as no new copies of the existing arrays are created```
+
+[link]https://leetcode.com/problems/search-in-rotated-sorted-array/)
+`````
